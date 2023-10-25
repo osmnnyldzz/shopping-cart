@@ -16,7 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        let viewController = ViewController()
+        let diContainer = DIContainer.instance
+        
+        let viewController = HomeVC(viewModel: diContainer.authViewModel())
+        
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }

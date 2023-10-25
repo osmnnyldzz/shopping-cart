@@ -9,10 +9,18 @@
 /* Begin PBXBuildFile section */
 		A09385812AE989440032EEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385802AE989440032EEE5 /* AppDelegate.swift */; };
 		A09385832AE989440032EEE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385822AE989440032EEE5 /* SceneDelegate.swift */; };
-		A09385852AE989440032EEE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385842AE989440032EEE5 /* ViewController.swift */; };
+		A09385852AE989440032EEE5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385842AE989440032EEE5 /* HomeVC.swift */; };
 		A093858B2AE989440032EEE5 /* shopping_cart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A09385892AE989440032EEE5 /* shopping_cart.xcdatamodeld */; };
 		A093858D2AE989470032EEE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A093858C2AE989470032EEE5 /* Assets.xcassets */; };
 		A09385902AE989470032EEE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A093858E2AE989470032EEE5 /* LaunchScreen.storyboard */; };
+		A09385A82AE9AB240032EEE5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385A72AE9AB240032EEE5 /* User.swift */; };
+		A09385AA2AE9B59D0032EEE5 /* IAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385A92AE9B59D0032EEE5 /* IAuthUseCase.swift */; };
+		A09385AC2AE9B5DE0032EEE5 /* IAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385AB2AE9B5DE0032EEE5 /* IAuthRepository.swift */; };
+		A09385AF2AE9B6230032EEE5 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385AE2AE9B6230032EEE5 /* AuthRepository.swift */; };
+		A09385B12AE9B6680032EEE5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385B02AE9B6680032EEE5 /* ApiService.swift */; };
+		A09385B82AE9B7800032EEE5 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385B72AE9B7800032EEE5 /* AuthUseCase.swift */; };
+		A09385BB2AE9BABF0032EEE5 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385BA2AE9BABF0032EEE5 /* DIContainer.swift */; };
+		A09385BE2AE9C00A0032EEE5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385BD2AE9C00A0032EEE5 /* HomeViewModel.swift */; };
 		EFEE9C0F222A06491EBEA9F9 /* Pods_shopping_cart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC082AE15F359118D4B82D /* Pods_shopping_cart.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,11 +30,19 @@
 		A093857D2AE989440032EEE5 /* shopping-cart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "shopping-cart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09385802AE989440032EEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09385822AE989440032EEE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A09385842AE989440032EEE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A09385842AE989440032EEE5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		A093858A2AE989440032EEE5 /* shopping_cart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = shopping_cart.xcdatamodel; sourceTree = "<group>"; };
 		A093858C2AE989470032EEE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A093858F2AE989470032EEE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A09385912AE989470032EEE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A09385A72AE9AB240032EEE5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A09385A92AE9B59D0032EEE5 /* IAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAuthUseCase.swift; sourceTree = "<group>"; };
+		A09385AB2AE9B5DE0032EEE5 /* IAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAuthRepository.swift; sourceTree = "<group>"; };
+		A09385AE2AE9B6230032EEE5 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		A09385B02AE9B6680032EEE5 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		A09385B72AE9B7800032EEE5 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
+		A09385BA2AE9BABF0032EEE5 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		A09385BD2AE9C00A0032EEE5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BFD6D7A83CDB73852900BF49 /* Pods-shopping-cart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-cart.debug.xcconfig"; path = "Target Support Files/Pods-shopping-cart/Pods-shopping-cart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +100,7 @@
 		A09385972AE98B440032EEE5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A09385B92AE9BAAF0032EEE5 /* DI */,
 				A09385802AE989440032EEE5 /* AppDelegate.swift */,
 				A09385822AE989440032EEE5 /* SceneDelegate.swift */,
 			);
@@ -93,6 +110,7 @@
 		A09385982AE98B4B0032EEE5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A09385B62AE9B7550032EEE5 /* UserCases */,
 				A09385A02AE98BE30032EEE5 /* Repositories */,
 				A093859F2AE98BDA0032EEE5 /* Network */,
 			);
@@ -102,7 +120,6 @@
 		A09385992AE98B4F0032EEE5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				A09385A32AE98BFA0032EEE5 /* UseCases */,
 				A09385A12AE98BEC0032EEE5 /* Entities */,
 				A09385A22AE98BF20032EEE5 /* Interfaces */,
 			);
@@ -113,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A09385A42AE98C010032EEE5 /* UIComponents */,
-				A09385A52AE98C0E0032EEE5 /* Views */,
+				A09385A52AE98C0E0032EEE5 /* Scenes */,
 				A093858E2AE989470032EEE5 /* LaunchScreen.storyboard */,
 			);
 			path = Presentation;
@@ -156,6 +173,7 @@
 		A093859F2AE98BDA0032EEE5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A09385B02AE9B6680032EEE5 /* ApiService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -163,6 +181,7 @@
 		A09385A02AE98BE30032EEE5 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				A09385AE2AE9B6230032EEE5 /* AuthRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -170,6 +189,7 @@
 		A09385A12AE98BEC0032EEE5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A09385A72AE9AB240032EEE5 /* User.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -177,15 +197,10 @@
 		A09385A22AE98BF20032EEE5 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				A09385B32AE9B72D0032EEE5 /* Repositories */,
+				A09385B22AE9B7240032EEE5 /* UseCases */,
 			);
 			path = Interfaces;
-			sourceTree = "<group>";
-		};
-		A09385A32AE98BFA0032EEE5 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UseCases;
 			sourceTree = "<group>";
 		};
 		A09385A42AE98C010032EEE5 /* UIComponents */ = {
@@ -195,12 +210,53 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
-		A09385A52AE98C0E0032EEE5 /* Views */ = {
+		A09385A52AE98C0E0032EEE5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A09385842AE989440032EEE5 /* ViewController.swift */,
+				A09385BC2AE9BFD40032EEE5 /* HomeScene */,
 			);
-			path = Views;
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A09385B22AE9B7240032EEE5 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				A09385A92AE9B59D0032EEE5 /* IAuthUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		A09385B32AE9B72D0032EEE5 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A09385AB2AE9B5DE0032EEE5 /* IAuthRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		A09385B62AE9B7550032EEE5 /* UserCases */ = {
+			isa = PBXGroup;
+			children = (
+				A09385B72AE9B7800032EEE5 /* AuthUseCase.swift */,
+			);
+			path = UserCases;
+			sourceTree = "<group>";
+		};
+		A09385B92AE9BAAF0032EEE5 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				A09385BA2AE9BABF0032EEE5 /* DIContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		A09385BC2AE9BFD40032EEE5 /* HomeScene */ = {
+			isa = PBXGroup;
+			children = (
+				A09385842AE989440032EEE5 /* HomeVC.swift */,
+				A09385BD2AE9C00A0032EEE5 /* HomeViewModel.swift */,
+			);
+			path = HomeScene;
 			sourceTree = "<group>";
 		};
 		CC58A70620BF962C82FD0F36 /* Frameworks */ = {
@@ -325,9 +381,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09385852AE989440032EEE5 /* ViewController.swift in Sources */,
+				A09385AC2AE9B5DE0032EEE5 /* IAuthRepository.swift in Sources */,
+				A09385BB2AE9BABF0032EEE5 /* DIContainer.swift in Sources */,
+				A09385852AE989440032EEE5 /* HomeVC.swift in Sources */,
 				A09385812AE989440032EEE5 /* AppDelegate.swift in Sources */,
+				A09385AA2AE9B59D0032EEE5 /* IAuthUseCase.swift in Sources */,
 				A09385832AE989440032EEE5 /* SceneDelegate.swift in Sources */,
+				A09385B12AE9B6680032EEE5 /* ApiService.swift in Sources */,
+				A09385BE2AE9C00A0032EEE5 /* HomeViewModel.swift in Sources */,
+				A09385B82AE9B7800032EEE5 /* AuthUseCase.swift in Sources */,
+				A09385A82AE9AB240032EEE5 /* User.swift in Sources */,
+				A09385AF2AE9B6230032EEE5 /* AuthRepository.swift in Sources */,
 				A093858B2AE989440032EEE5 /* shopping_cart.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
