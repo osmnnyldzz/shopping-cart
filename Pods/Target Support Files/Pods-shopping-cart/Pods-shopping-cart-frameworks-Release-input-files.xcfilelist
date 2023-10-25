@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-shopping-cart/Pods-shopping-cart-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
