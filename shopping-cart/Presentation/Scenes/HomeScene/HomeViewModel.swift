@@ -7,14 +7,5 @@
 
 final class HomeViewModel {
     
-    private var authUseCase: AuthUseCase
-    
-    init(authUseCase: AuthUseCase) {
-        self.authUseCase = authUseCase
-    }
-    
-    func fetchUser() -> User? {
-        return self.authUseCase.execute()
-    }
     
 }

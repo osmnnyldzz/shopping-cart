@@ -21,6 +21,9 @@
 		A09385B82AE9B7800032EEE5 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385B72AE9B7800032EEE5 /* AuthUseCase.swift */; };
 		A09385BB2AE9BABF0032EEE5 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385BA2AE9BABF0032EEE5 /* DIContainer.swift */; };
 		A09385BE2AE9C00A0032EEE5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385BD2AE9C00A0032EEE5 /* HomeViewModel.swift */; };
+		A09385C12AE9D3610032EEE5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385C02AE9D3610032EEE5 /* LoginVC.swift */; };
+		A09385C62AEA477F0032EEE5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385C52AEA477F0032EEE5 /* LoginViewModel.swift */; };
+		A09385C82AEA4D450032EEE5 /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385C72AEA4D450032EEE5 /* CategoryListCollectionViewCell.swift */; };
 		EFEE9C0F222A06491EBEA9F9 /* Pods_shopping_cart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC082AE15F359118D4B82D /* Pods_shopping_cart.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		A09385B72AE9B7800032EEE5 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
 		A09385BA2AE9BABF0032EEE5 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		A09385BD2AE9C00A0032EEE5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A09385C02AE9D3610032EEE5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		A09385C52AEA477F0032EEE5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A09385C72AEA4D450032EEE5 /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
 		BFD6D7A83CDB73852900BF49 /* Pods-shopping-cart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-cart.debug.xcconfig"; path = "Target Support Files/Pods-shopping-cart/Pods-shopping-cart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +212,7 @@
 		A09385A42AE98C010032EEE5 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				A09385C72AEA4D450032EEE5 /* CategoryListCollectionViewCell.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 		A09385A52AE98C0E0032EEE5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A09385BF2AE9D34A0032EEE5 /* LoginScene */,
 				A09385BC2AE9BFD40032EEE5 /* HomeScene */,
 			);
 			path = Scenes;
@@ -257,6 +265,15 @@
 				A09385BD2AE9C00A0032EEE5 /* HomeViewModel.swift */,
 			);
 			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		A09385BF2AE9D34A0032EEE5 /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				A09385C02AE9D3610032EEE5 /* LoginVC.swift */,
+				A09385C52AEA477F0032EEE5 /* LoginViewModel.swift */,
+			);
+			path = LoginScene;
 			sourceTree = "<group>";
 		};
 		CC58A70620BF962C82FD0F36 /* Frameworks */ = {
@@ -381,15 +398,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09385C82AEA4D450032EEE5 /* CategoryListCollectionViewCell.swift in Sources */,
 				A09385AC2AE9B5DE0032EEE5 /* IAuthRepository.swift in Sources */,
 				A09385BB2AE9BABF0032EEE5 /* DIContainer.swift in Sources */,
 				A09385852AE989440032EEE5 /* HomeVC.swift in Sources */,
 				A09385812AE989440032EEE5 /* AppDelegate.swift in Sources */,
 				A09385AA2AE9B59D0032EEE5 /* IAuthUseCase.swift in Sources */,
 				A09385832AE989440032EEE5 /* SceneDelegate.swift in Sources */,
+				A09385C62AEA477F0032EEE5 /* LoginViewModel.swift in Sources */,
 				A09385B12AE9B6680032EEE5 /* ApiService.swift in Sources */,
 				A09385BE2AE9C00A0032EEE5 /* HomeViewModel.swift in Sources */,
 				A09385B82AE9B7800032EEE5 /* AuthUseCase.swift in Sources */,
+				A09385C12AE9D3610032EEE5 /* LoginVC.swift in Sources */,
 				A09385A82AE9AB240032EEE5 /* User.swift in Sources */,
 				A09385AF2AE9B6230032EEE5 /* AuthRepository.swift in Sources */,
 				A093858B2AE989440032EEE5 /* shopping_cart.xcdatamodeld in Sources */,

@@ -21,8 +21,12 @@ class DIContainer {
         return AuthUseCase(authRepository: createAuthRepository())
     }
     
-    func authViewModel() -> HomeViewModel {
-        return HomeViewModel(authUseCase: createAuthUseCase())
+    func authViewModel() -> LoginViewModel {
+        return LoginViewModel(authUseCase: createAuthUseCase())
+    }
+    
+    func homeViewModel() -> HomeViewModel {
+        return HomeViewModel()
     }
     
 }

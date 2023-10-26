@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let diContainer = DIContainer.instance
         
-        let viewController = HomeVC(viewModel: diContainer.authViewModel())
+        let viewController = HomeVC(viewModel: diContainer.homeViewModel())
         
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
