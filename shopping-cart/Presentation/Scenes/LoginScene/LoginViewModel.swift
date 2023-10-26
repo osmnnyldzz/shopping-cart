@@ -13,8 +13,16 @@ final class LoginViewModel {
         self.authUseCase = authUseCase
     }
     
-    func fetchUser() -> User? {
-        return self.authUseCase.execute()
+    func fetchUser() {
+        self.authUseCase.execute { (response) in
+            switch response {
+            case .success(let value):
+                print(value)
+            case .failure(let error):
+                print(error)
+            }
+          
+        }
     }
     
 }

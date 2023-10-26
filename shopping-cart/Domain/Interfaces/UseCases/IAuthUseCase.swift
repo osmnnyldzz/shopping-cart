@@ -6,5 +6,7 @@
 //
 
 protocol IAuthUseCase {
-    func execute() -> User?
+    typealias UserResponse = Result<[User], Error>
+    
+    func execute(_ completion: @escaping (UserResponse) -> Void)
 }

@@ -11,6 +11,7 @@ import SnapKit
 final class HomeVC: UIViewController {
     
     private var viewModel: HomeViewModel!
+    private var categories: Categories?
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -24,6 +25,7 @@ final class HomeVC: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .clear
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
@@ -33,9 +35,11 @@ extension HomeVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = .white
         view.addSubview(collectionView)
         
+
+        self.bindData()
         self.setupCollectionView()
         self.setConstraints()
      
@@ -50,24 +54,32 @@ extension HomeVC {
     private func setConstraints() {
         // Base Collection View Constraints
         self.collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(8.0)
-            make.bottom.equalToSuperview().offset(-8.0)
-            make.leading.equalToSuperview().offset(8.0)
-            make.trailing.equalToSuperview().offset(-8.0)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(8.0)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-8.0)
+            make.leading.equalTo(self.view.snp.leading).offset(8.0)
+            make.trailing.equalTo(self.view.snp.trailing).offset(-8.0)
+          
+        }
+    }
+    
+    private func bindData() {
+        self.viewModel.fetchCategories { response in
+            self.categories = response
+            self.collectionView.reloadData()
         }
     }
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.categories.count
+        return self.categories?.categories.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryListCollectionViewCell.identifier, for: indexPath) as! CategoryListCollectionViewCell
         
         cell.backgroundColor = .orange
-        
+        cell.categoryTitleLabel.text = self.categories?.categories[indexPath.row]
         return cell
     }
     
@@ -81,7 +93,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 }
 
 
-#Preview {
-    HomeVC(viewModel: DIContainer.instance.homeViewModel())
-}
+//#Preview {
+//HomeVC(viewModel: DIContainer.instance.homeViewModel())
+//}
 

@@ -21,12 +21,22 @@ class DIContainer {
         return AuthUseCase(authRepository: createAuthRepository())
     }
     
+    func createProductRepository() -> ProductRepository {
+        return ProductRepository(network: self.apiService)
+    }
+    
+    func createProductUseCase() -> ProductUseCase {
+        return ProductUseCase(productRepository: createProductRepository())
+    }
+    
     func authViewModel() -> LoginViewModel {
         return LoginViewModel(authUseCase: createAuthUseCase())
     }
     
+    
     func homeViewModel() -> HomeViewModel {
-        return HomeViewModel()
+        return HomeViewModel(productUseCase: createProductUseCase())
     }
+
     
 }

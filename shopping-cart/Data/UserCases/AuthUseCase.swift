@@ -6,15 +6,17 @@
 //
 
 final class AuthUseCase : IAuthUseCase {
-    
     private var authRepository : AuthRepository
+    
+    typealias UserResponse = Result<[User], Error>
     
     init(authRepository: AuthRepository) {
         self.authRepository = authRepository
     }
     
-    func execute() -> User? {
-        return authRepository.fetchUsers()
+    func execute(_ completion: @escaping (UserResponse) -> Void) {
+        self.authRepository.fetchUsers { (response) in
+            completion(response)
+        }
     }
-    
 }
