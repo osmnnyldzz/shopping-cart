@@ -37,8 +37,8 @@ final class HomeViewModel {
         }
     }
     
-    func fetchAllSingleCategory(_ completionHandler: @escaping ([Product]) -> Void) {
-        self.productUseCase.executeSingleCategory(categoryName: "men\'s clothing") { (response) in
+    func fetchAllSingleCategory(categoryName:String, _ completionHandler: @escaping ([Product]) -> Void) {
+        self.productUseCase.executeSingleCategory(categoryName: categoryName) { (response) in
             switch response {
             case .success(let value):
                 completionHandler(value)

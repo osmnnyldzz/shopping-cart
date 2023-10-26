@@ -1,19 +1,19 @@
 //
-//  ViewController.swift
+//  CategoryListViewController.swift
 //  shopping-cart
 //
-//  Created by Osman Yıldız on 25.10.2023.
+//  Created by Osman Yıldız on 26.10.2023.
 //
 
 import UIKit
 import SnapKit
 
-final class HomeVC: UIViewController {
+class CategoryListViewController: UIViewController {
     
-    private var viewModel: HomeViewModel!
-    private var categories: Categories?
+    private var viewModel: CategoryListViewModel!
+    var products = [Product]()
     
-    init(viewModel: HomeViewModel) {
+    init(viewModel: CategoryListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -30,30 +30,24 @@ final class HomeVC: UIViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
-}
-
-extension HomeVC {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .green
         view.addSubview(collectionView)
-        
 
-        self.bindData()
-        self.setupCollectionView()
-        self.setConstraints()
-     
+        setupCollectionView()
+        setConstraints()
     }
     
+    
     private func setupCollectionView(){
-        self.collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+        self.collectionView.register(CategoryListCollectionViewCell.self, forCellWithReuseIdentifier: CategoryListCollectionViewCell.identifier)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
-    
+
     private func setConstraints() {
-        // Base Collection View Constraints
         self.collectionView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(8.0)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-8.0)
@@ -63,24 +57,18 @@ extension HomeVC {
         }
     }
     
-    private func bindData() {
-        self.viewModel.fetchCategories { response in
-            self.categories = response
-            self.collectionView.reloadData()
-        }
-    }
 }
 
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CategoryListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.categories?.categories.count ?? 0
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as! HomeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryListCollectionViewCell.identifier, for: indexPath) as! CategoryListCollectionViewCell
         
         cell.backgroundColor = .orange
-        cell.categoryTitleLabel.text = self.categories?.categories[indexPath.row]
+      
         return cell
     }
     
@@ -89,13 +77,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = CategoryListViewController(viewModel: DIContainer.instance.categoryListViewModel())
-        
-        self.viewModel.fetchAllSingleCategory(categoryName: self.categories?.categories[indexPath.row] ?? "") { response in
-            vc.products = response
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+       
     }
 }
-
-

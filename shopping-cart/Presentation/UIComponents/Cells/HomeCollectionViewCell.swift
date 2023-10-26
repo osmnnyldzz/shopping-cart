@@ -1,5 +1,5 @@
 //
-//  CategoryListCollectionViewCell.swift
+//  HomeCollectionViewCell.swift
 //  shopping-cart
 //
 //  Created by Osman Yıldız on 26.10.2023.
@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class CategoryListCollectionViewCell: UICollectionViewCell {
+class HomeCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "CategoryListCollectionViewCell"
+    static let identifier = "HomeCollectionViewCell"
     
     lazy var categoryTitleLabel: UILabel = {
        let lbl = UILabel()
@@ -56,7 +56,4 @@ class CategoryListCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
     }
-}
-#Preview {
-    CategoryListCollectionViewCell()
 }

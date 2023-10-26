@@ -13,6 +13,7 @@ class DIContainer {
     
     var apiService = ApiService()
     
+    // Login Scene Prepare
     func createAuthRepository() -> AuthRepository {
         return AuthRepository(network: self.apiService)
     }
@@ -21,6 +22,11 @@ class DIContainer {
         return AuthUseCase(authRepository: createAuthRepository())
     }
     
+    func authViewModel() -> LoginViewModel {
+        return LoginViewModel(authUseCase: createAuthUseCase())
+    }
+    
+    // Home Scene Prepare
     func createProductRepository() -> ProductRepository {
         return ProductRepository(network: self.apiService)
     }
@@ -28,15 +34,13 @@ class DIContainer {
     func createProductUseCase() -> ProductUseCase {
         return ProductUseCase(productRepository: createProductRepository())
     }
-    
-    func authViewModel() -> LoginViewModel {
-        return LoginViewModel(authUseCase: createAuthUseCase())
-    }
-    
-    
+
     func homeViewModel() -> HomeViewModel {
         return HomeViewModel(productUseCase: createProductUseCase())
     }
 
-    
+    // CategoryList Scene Prepare
+    func categoryListViewModel() -> CategoryListViewModel {
+        return CategoryListViewModel(productUseCase: createProductUseCase())
+    }
 }
