@@ -14,20 +14,21 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     lazy var categoryTitleLabel: UILabel = {
        let lbl = UILabel()
-        lbl.text = "Test"
-        lbl.textColor = .white
+        lbl.textColor = .purple
         lbl.textAlignment = .center
-        lbl.font = UIFont.systemFont(ofSize: 24.0)
+        lbl.font = UIFont.boldSystemFont(ofSize: 36.0)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()   
     
     lazy var categoryBannerImageView: UIImageView = {
        let imgView = UIImageView()
-        imgView.image = UIImage(systemName: "house")
-        imgView.contentMode = .scaleAspectFit
-        imgView.alpha = 0.5
+        imgView.image = UIImage(systemName: "photo.on.rectangle")
+        imgView.contentMode = .scaleToFill
+        imgView.alpha = 0.2
         imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.layer.cornerRadius = 8.0
+        imgView.clipsToBounds = true
         return imgView
     }()
     
@@ -43,6 +44,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     private func setupViews() {
         addSubview(categoryTitleLabel)
         addSubview(categoryBannerImageView)
+        self.contentView.layer.borderColor = UIColor.gray.cgColor
+        self.contentView.layer.borderWidth = 1.0
+        self.contentView.layer.cornerRadius = 8
         
         self.categoryTitleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -56,4 +60,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
     }
+}
+
+#Preview {
+    HomeCollectionViewCell()
 }

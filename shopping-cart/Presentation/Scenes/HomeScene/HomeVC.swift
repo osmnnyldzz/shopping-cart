@@ -38,7 +38,7 @@ extension HomeVC {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         view.addSubview(collectionView)
-        
+        title = "Shopping Cart"
 
         self.bindData()
         self.setupCollectionView()
@@ -55,8 +55,8 @@ extension HomeVC {
     private func setConstraints() {
         // Base Collection View Constraints
         self.collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(8.0)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-8.0)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             make.leading.equalTo(self.view.snp.leading).offset(8.0)
             make.trailing.equalTo(self.view.snp.trailing).offset(-8.0)
           
@@ -79,13 +79,13 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as! HomeCollectionViewCell
         
-        cell.backgroundColor = .orange
         cell.categoryTitleLabel.text = self.categories?.categories[indexPath.row]
+        cell.categoryBannerImageView.image = self.categories?.categoryImage[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width / 2 - 16, height: 100)
+        return CGSize(width: self.view.frame.width - 16, height: 240)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

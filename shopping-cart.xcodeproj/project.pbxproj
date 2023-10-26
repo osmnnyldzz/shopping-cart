@@ -36,6 +36,7 @@
 		A09385DE2AEAF4A10032EEE5 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385DD2AEAF4A10032EEE5 /* CategoryListViewController.swift */; };
 		A09385E12AEAF53D0032EEE5 /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385E02AEAF53D0032EEE5 /* CategoryListCollectionViewCell.swift */; };
 		A09385E42AEB13DF0032EEE5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385E32AEB13DF0032EEE5 /* TabBarController.swift */; };
+		A09385E62AEB1B030032EEE5 /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385E52AEB1B030032EEE5 /* ImageEnum.swift */; };
 		EFEE9C0F222A06491EBEA9F9 /* Pods_shopping_cart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC082AE15F359118D4B82D /* Pods_shopping_cart.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		A09385DD2AEAF4A10032EEE5 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		A09385E02AEAF53D0032EEE5 /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
 		A09385E32AEB13DF0032EEE5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A09385E52AEB1B030032EEE5 /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
 		BFD6D7A83CDB73852900BF49 /* Pods-shopping-cart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-cart.debug.xcconfig"; path = "Target Support Files/Pods-shopping-cart/Pods-shopping-cart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 		A093859E2AE98BB30032EEE5 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				A09385E52AEB1B030032EEE5 /* ImageEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				A09385B82AE9B7800032EEE5 /* AuthUseCase.swift in Sources */,
 				A09385C12AE9D3610032EEE5 /* LoginVC.swift in Sources */,
 				A09385A82AE9AB240032EEE5 /* User.swift in Sources */,
+				A09385E62AEB1B030032EEE5 /* ImageEnum.swift in Sources */,
 				A09385AF2AE9B6230032EEE5 /* AuthRepository.swift in Sources */,
 				A09385DC2AEAF47B0032EEE5 /* CategoryListViewModel.swift in Sources */,
 				A09385CD2AEA71320032EEE5 /* NetworkConstants.swift in Sources */,

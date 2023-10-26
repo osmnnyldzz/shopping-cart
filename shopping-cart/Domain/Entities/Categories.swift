@@ -5,6 +5,17 @@
 //  Created by Osman Yıldız on 26.10.2023.
 //
 
-struct Categories: Codable {
+import UIKit
+
+struct Categories : Codable {
     var categories: [String]
+    
+    var categoryImage: [UIImage] {
+       return [
+        .electronics,
+        .womensClothing,
+        .mensClothing,
+        .jewelery
+       ]
+    }
 }
