@@ -7,5 +7,4 @@
 
 struct Categories: Codable {
     var categories: [String]
-    
 }

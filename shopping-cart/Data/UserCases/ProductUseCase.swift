@@ -6,16 +6,28 @@
 //
 
 final class ProductUseCase : IProductUseCase {
+  
     private var productRepository : ProductRepository
     
-    typealias CategoriesResponse = Result<Categories, Error>
 
     init(productRepository: ProductRepository) {
         self.productRepository = productRepository
     }
     
-    func executeCategories(_ completion: @escaping (CategoriesResponse) -> Void) {
+    func executeCategories(_ completion: @escaping (NetworkConstants.CategoriesResponse) -> Void) {
         self.productRepository.fetchCategories { (response) in
+            completion(response)
+        }
+    }
+    
+    func executeAllProducts(_ completion: @escaping (NetworkConstants.ProductResponse) -> Void) {
+        self.productRepository.fetchAllProducts { (response) in
+            completion(response)
+        }
+    }
+    
+    func executeSingleCategory(categoryName: String, _ completion: @escaping (NetworkConstants.ProductResponse) -> Void) {
+        self.productRepository.fetchAllSingleCategory(categoryName: categoryName) { (response) in
             completion(response)
         }
     }

@@ -6,7 +6,7 @@
 //
 
 protocol IProductUseCase {
-    typealias CategoriesResponse = Result<Categories, Error>
-
-    func executeCategories(_ completion: @escaping (CategoriesResponse) -> Void)
+    func executeCategories(_ completion: @escaping (NetworkConstants.CategoriesResponse) -> Void)
+    func executeAllProducts(_ completion: @escaping (NetworkConstants.ProductResponse) -> Void)
+    func executeSingleCategory(categoryName:String, _ completion: @escaping (NetworkConstants.ProductResponse) -> Void)
 }

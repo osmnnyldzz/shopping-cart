@@ -93,7 +93,3 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 }
 
 
-//#Preview {
-//HomeVC(viewModel: DIContainer.instance.homeViewModel())
-//}
-

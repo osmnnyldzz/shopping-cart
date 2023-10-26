@@ -31,6 +31,7 @@
 		A09385D32AEA98F70032EEE5 /* IProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385D22AEA98F70032EEE5 /* IProductUseCase.swift */; };
 		A09385D52AEA99540032EEE5 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385D42AEA99540032EEE5 /* ProductRepository.swift */; };
 		A09385D72AEA99CC0032EEE5 /* ProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385D62AEA99CC0032EEE5 /* ProductUseCase.swift */; };
+		A09385D92AEAEB9C0032EEE5 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385D82AEAEB9C0032EEE5 /* Product.swift */; };
 		EFEE9C0F222A06491EBEA9F9 /* Pods_shopping_cart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC082AE15F359118D4B82D /* Pods_shopping_cart.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		A09385D22AEA98F70032EEE5 /* IProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IProductUseCase.swift; sourceTree = "<group>"; };
 		A09385D42AEA99540032EEE5 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		A09385D62AEA99CC0032EEE5 /* ProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductUseCase.swift; sourceTree = "<group>"; };
+		A09385D82AEAEB9C0032EEE5 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		BFD6D7A83CDB73852900BF49 /* Pods-shopping-cart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-cart.debug.xcconfig"; path = "Target Support Files/Pods-shopping-cart/Pods-shopping-cart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 			children = (
 				A09385A72AE9AB240032EEE5 /* User.swift */,
 				A09385CE2AEA98290032EEE5 /* Categories.swift */,
+				A09385D82AEAEB9C0032EEE5 /* Product.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				A09385AA2AE9B59D0032EEE5 /* IAuthUseCase.swift in Sources */,
 				A09385832AE989440032EEE5 /* SceneDelegate.swift in Sources */,
 				A09385D52AEA99540032EEE5 /* ProductRepository.swift in Sources */,
+				A09385D92AEAEB9C0032EEE5 /* Product.swift in Sources */,
 				A09385C62AEA477F0032EEE5 /* LoginViewModel.swift in Sources */,
 				A09385B12AE9B6680032EEE5 /* ApiService.swift in Sources */,
 				A09385BE2AE9C00A0032EEE5 /* HomeViewModel.swift in Sources */,

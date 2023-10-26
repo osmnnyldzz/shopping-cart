@@ -15,7 +15,7 @@ class CategoryListCollectionViewCell: UICollectionViewCell {
     lazy var categoryTitleLabel: UILabel = {
        let lbl = UILabel()
         lbl.text = "Test"
-        lbl.textColor = .red
+        lbl.textColor = .white
         lbl.textAlignment = .center
         lbl.font = UIFont.systemFont(ofSize: 24.0)
         lbl.translatesAutoresizingMaskIntoConstraints = false

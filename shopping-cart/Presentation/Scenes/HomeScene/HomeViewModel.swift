@@ -25,4 +25,27 @@ final class HomeViewModel {
             }
         }
     }
+    
+    func fetchAllProducts(_ completionHandler: @escaping ([Product]) -> Void ) {
+        self.productUseCase.executeAllProducts { (response) in
+            switch response {
+            case .success(let value):
+                completionHandler(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func fetchAllSingleCategory(_ completionHandler: @escaping ([Product]) -> Void) {
+        self.productUseCase.executeSingleCategory(categoryName: "men\'s clothing") { (response) in
+            switch response {
+            case .success(let value):
+                completionHandler(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }

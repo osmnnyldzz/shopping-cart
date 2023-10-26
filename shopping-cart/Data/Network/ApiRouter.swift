@@ -10,6 +10,8 @@ enum ApiRouter: URLRequestConvertible {
 
     case fetchCategories
     case fetchUser
+    case fetchAllProducts
+    case fetchSingleCategory(category:String)
     
     func asURLRequest() throws -> URLRequest {
         let url = try NetworkConstants.BaseUrl.asURL()
@@ -30,8 +32,12 @@ enum ApiRouter: URLRequestConvertible {
         switch self {
         case .fetchCategories:
             return "products/categories"
+        case .fetchSingleCategory(let category):
+            return "products/category/\(category)"
         case .fetchUser:
             return "users"
+        case .fetchAllProducts:
+            return "products"
         }
     }
     
@@ -39,7 +45,11 @@ enum ApiRouter: URLRequestConvertible {
         switch self {
         case .fetchCategories:
             return .get
+        case .fetchSingleCategory:
+            return .get
         case .fetchUser:
+            return .get
+        case .fetchAllProducts:
             return .get
         }
     }
@@ -48,7 +58,11 @@ enum ApiRouter: URLRequestConvertible {
         switch self {
         case .fetchCategories:
             return [:]
+        case .fetchSingleCategory:
+            return [:]
         case .fetchUser:
+            return [:]
+        case .fetchAllProducts:
             return [:]
         }
     }

@@ -6,7 +6,7 @@
 //
 
 protocol IProductRepository {
-    typealias CategoriesResponse = Result<Categories, Error>
-
-    func fetchCategories(_ completion: @escaping (CategoriesResponse) -> Void)
+    func fetchCategories(_ completion: @escaping (NetworkConstants.CategoriesResponse) -> Void)
+    func fetchAllProducts(_ completion: @escaping (NetworkConstants.ProductResponse) -> Void)
+    func fetchAllSingleCategory(categoryName:String, _ completion: @escaping (NetworkConstants.ProductResponse) -> Void)
 }
