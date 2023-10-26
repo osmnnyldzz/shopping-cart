@@ -10,10 +10,14 @@ import SnapKit
 
 class CategoryListCollectionViewCell: UICollectionViewCell {
     
+    static let identifier = "CategoryListCollectionViewCell"
+    
     lazy var categoryTitleLabel: UILabel = {
        let lbl = UILabel()
         lbl.text = "Test"
         lbl.textColor = .red
+        lbl.textAlignment = .center
+        lbl.font = UIFont.systemFont(ofSize: 24.0)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()   
@@ -21,7 +25,8 @@ class CategoryListCollectionViewCell: UICollectionViewCell {
     lazy var categoryBannerImageView: UIImageView = {
        let imgView = UIImageView()
         imgView.image = UIImage(systemName: "house")
-        imgView.contentMode = .scaleToFill
+        imgView.contentMode = .scaleAspectFit
+        imgView.alpha = 0.5
         imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
     }()
@@ -42,11 +47,13 @@ class CategoryListCollectionViewCell: UICollectionViewCell {
         self.categoryTitleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
+            make.edges.equalToSuperview()
         }
         
         self.categoryBannerImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
 }

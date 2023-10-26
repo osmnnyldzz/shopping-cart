@@ -7,5 +7,5 @@
 
 final class HomeViewModel {
     
-    
+    var categories = ["Test","Test","Test"]
 }
