@@ -7,13 +7,22 @@
 
 final class CategoryListViewModel {
     private var productUseCase: ProductUseCase
+    private var cartUseCase: CartUseCase
     
-    init(productUseCase: ProductUseCase) {
+    init(productUseCase: ProductUseCase, cartUseCase: CartUseCase) {
         self.productUseCase = productUseCase
+        self.cartUseCase = cartUseCase
     }
     
     func addToCartItem(_ product: Product) {
-        //
+        self.cartUseCase.executeAddToCart(product) { response in
+            switch response {
+            case .success(let value):
+                print(value.id)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
 }

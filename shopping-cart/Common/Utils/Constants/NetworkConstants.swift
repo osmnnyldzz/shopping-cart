@@ -8,9 +8,11 @@
 struct NetworkConstants {
     static var BaseUrl = "https://fakestoreapi.com/"
     
-    typealias CategoriesResponse = Result<Categories, Error>
-    typealias CategoriesArrayResponse = Result<[String], Error>
-    typealias ProductResponse = Result<[Product], Error>
+    typealias CategoriesResponse        = Result<Categories,    Error>
+    typealias CategoriesArrayResponse   = Result<[String],      Error>
+    typealias ProductResponse           = Result<[Product],     Error>
+    typealias CartItemResponse          = Result<CartResponse,  Error>
+    typealias CartAllResponse           = Result<[CartItem],    Error>
     
     enum HttpHeaderField: String {
         case contentType = "Content-Type"

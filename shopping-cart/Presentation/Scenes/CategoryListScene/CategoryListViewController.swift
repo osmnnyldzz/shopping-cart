@@ -78,7 +78,7 @@ extension CategoryListViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (self.view.frame.width / 2) - 8, height: 240)
+        return CGSize(width: (self.view.frame.width / 2) - 16, height: 240)
     }
     
 }

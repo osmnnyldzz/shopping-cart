@@ -13,14 +13,14 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         let homeVC = HomeVC(viewModel: DIContainer.instance.homeViewModel())
-        let secondVC = CategoryListViewController(viewModel: DIContainer.instance.categoryListViewModel()) // Dummy
+        let cartVC = CartVC(viewModel: DIContainer.instance.cartViewModel())
         
         let homeNav = UINavigationController(rootViewController: homeVC)
-        let secondNav = UINavigationController(rootViewController: secondVC) // Dummy
+        let cartNav = UINavigationController(rootViewController: cartVC)
         
         homeNav.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
-        secondNav.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "2.circle"), tag: 1)
+        cartNav.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "cart"), tag: 1)
                
-        setViewControllers([homeNav, secondNav], animated: false) 
+        setViewControllers([homeNav, cartNav], animated: false)
     }
 }

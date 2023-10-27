@@ -95,7 +95,11 @@ final class CategoryListCollectionViewCell: UICollectionViewCell {
         
         addSubview(baseContainer)
         addSubview(baseColumn)
- 
+        
+        setConstraints()
+    }
+    
+    private func setConstraints() {
         baseContainer.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-8)
@@ -129,7 +133,7 @@ final class CategoryListCollectionViewCell: UICollectionViewCell {
     
     @objc private func addToCartButtonTapped(sender:UIButton) {
         delegate?.addToCartButtonTapped(sender: sender)
-       }
+    }
 }
 
 #Preview {

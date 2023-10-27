@@ -41,6 +41,19 @@ class DIContainer {
 
     // CategoryList Scene Prepare
     func categoryListViewModel() -> CategoryListViewModel {
-        return CategoryListViewModel(productUseCase: createProductUseCase())
+        return CategoryListViewModel(productUseCase: createProductUseCase(), cartUseCase: createCartUseCase())
+    }
+    
+    // Cart Scene Prepare
+    func createCartRepository() -> CartRepository {
+        return CartRepository(network: self.apiService)
+    }
+    
+    func createCartUseCase() -> CartUseCase {
+        return CartUseCase(cartRepository: createCartRepository())
+    }
+
+    func cartViewModel() -> CartViewModel {
+        return CartViewModel(cartUseCase: createCartUseCase())
     }
 }

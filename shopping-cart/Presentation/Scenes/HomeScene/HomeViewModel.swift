@@ -7,7 +7,7 @@
 
 final class HomeViewModel {
     
-    var categories = ["Test","Test","Test"]
+    var categories = [String]()
     
     private var productUseCase: ProductUseCase
     

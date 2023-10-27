@@ -12,6 +12,8 @@ enum ApiRouter: URLRequestConvertible {
     case fetchUser
     case fetchAllProducts
     case fetchSingleCategory(category:String)
+    case addToCart(item:CartItem)
+    case fetchCart
     
     func asURLRequest() throws -> URLRequest {
         let url = try NetworkConstants.BaseUrl.asURL()
@@ -22,6 +24,11 @@ enum ApiRouter: URLRequestConvertible {
                             forHTTPHeaderField: NetworkConstants.HttpHeaderField.contentType.rawValue)    
         urlRequest.setValue(NetworkConstants.ContentType.json.rawValue,
                             forHTTPHeaderField: NetworkConstants.HttpHeaderField.acceptType.rawValue)
+        
+        if !parameters.isEmpty {
+            let jsonData = try JSONSerialization.data(withJSONObject: parameters as AnyObject)
+            urlRequest.httpBody = jsonData
+        }
         
         urlRequest.timeoutInterval = 20.0
         
@@ -38,6 +45,10 @@ enum ApiRouter: URLRequestConvertible {
             return "users"
         case .fetchAllProducts:
             return "products"
+        case .addToCart:
+            return "carts"
+        case .fetchCart:
+            return "carts/user/2"
         }
     }
     
@@ -51,6 +62,10 @@ enum ApiRouter: URLRequestConvertible {
             return .get
         case .fetchAllProducts:
             return .get
+        case .addToCart:
+            return .post
+        case .fetchCart:
+            return .get
         }
     }
     
@@ -63,6 +78,16 @@ enum ApiRouter: URLRequestConvertible {
         case .fetchUser:
             return [:]
         case .fetchAllProducts:
+            return [:]
+        case .addToCart(let item):
+            return [
+                "userId": item.userId ?? -1,
+                "products": [
+                    ["productId":5],
+                    ["quantity":1]
+                ]
+            ]
+        case .fetchCart:
             return [:]
         }
     }

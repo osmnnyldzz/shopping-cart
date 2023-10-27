@@ -44,10 +44,16 @@ class HomeCollectionViewCell: UICollectionViewCell {
     private func setupViews() {
         addSubview(categoryTitleLabel)
         addSubview(categoryBannerImageView)
+        
         self.contentView.layer.borderColor = UIColor.gray.cgColor
         self.contentView.layer.borderWidth = 1.0
         self.contentView.layer.cornerRadius = 8
         
+        setConstraints() 
+        
+    }
+    
+    private func setConstraints() {
         self.categoryTitleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
