@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class CategoryListViewController: UIViewController {
     
@@ -33,7 +34,7 @@ class CategoryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .green
+        self.view.backgroundColor = .white
         view.addSubview(collectionView)
 
         setupCollectionView()
@@ -66,17 +67,24 @@ extension CategoryListViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryListCollectionViewCell.identifier, for: indexPath) as! CategoryListCollectionViewCell
+        let data = products[indexPath.row]
         
-        cell.backgroundColor = .orange
-      
+        cell.delegate = self
+        cell.productImage.kf.setImage(with: URL(string: data.image ?? "") )
+        cell.productPrice.text = "\(data.price ?? 0.0) TL"
+        cell.productTitle.text = data.title ?? ""
+        cell.addToCartButton.tag = indexPath.row
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width / 2 - 16, height: 100)
+        return CGSize(width: (self.view.frame.width / 2) - 8, height: 240)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
+}
+
+extension CategoryListViewController: CategoryListCollectionViewCellDelegate {
+    func addToCartButtonTapped(sender: UIButton) {
+        viewModel.addToCartItem(products[sender.tag])
     }
 }

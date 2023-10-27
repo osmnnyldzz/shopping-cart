@@ -12,4 +12,8 @@ final class CategoryListViewModel {
         self.productUseCase = productUseCase
     }
     
+    func addToCartItem(_ product: Product) {
+        //
+    }
+    
 }
