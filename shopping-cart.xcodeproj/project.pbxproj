@@ -53,6 +53,7 @@
 		A093860E2AED2A8B0032EEE5 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093860D2AED2A8B0032EEE5 /* DBManager.swift */; };
 		A09386152AED2D080032EEE5 /* CartDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09386132AED2D080032EEE5 /* CartDB+CoreDataClass.swift */; };
 		A09386162AED2D080032EEE5 /* CartDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09386142AED2D080032EEE5 /* CartDB+CoreDataProperties.swift */; };
+		A093861B2AED540D0032EEE5 /* UIHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093861A2AED540D0032EEE5 /* UIHomeView.swift */; };
 		EFEE9C0F222A06491EBEA9F9 /* Pods_shopping_cart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC082AE15F359118D4B82D /* Pods_shopping_cart.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		A093860D2AED2A8B0032EEE5 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		A09386132AED2D080032EEE5 /* CartDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartDB+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		A09386142AED2D080032EEE5 /* CartDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartDB+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		A093861A2AED540D0032EEE5 /* UIHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHomeView.swift; sourceTree = "<group>"; };
 		BFD6D7A83CDB73852900BF49 /* Pods-shopping-cart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-cart.debug.xcconfig"; path = "Target Support Files/Pods-shopping-cart/Pods-shopping-cart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +285,7 @@
 				A09385F82AEC8BDE0032EEE5 /* UIEmptyCart.swift */,
 				A09385FA2AEC928D0032EEE5 /* UILoginView.swift */,
 				A09385FC2AEC98390032EEE5 /* UICartView.swift */,
+				A093861A2AED540D0032EEE5 /* UIHomeView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				A09385EA2AEBE4F10032EEE5 /* ICartUseCase.swift in Sources */,
 				A09385EC2AEBE54F0032EEE5 /* CartItem.swift in Sources */,
 				A09385D52AEA99540032EEE5 /* ProductRepository.swift in Sources */,
+				A093861B2AED540D0032EEE5 /* UIHomeView.swift in Sources */,
 				A09385FD2AEC98390032EEE5 /* UICartView.swift in Sources */,
 				A09385FF2AEC9C4B0032EEE5 /* UIView+Extensions.swift in Sources */,
 				A09385D92AEAEB9C0032EEE5 /* Product.swift in Sources */,
