@@ -30,7 +30,10 @@ final class CartVC: UIViewController, LoginVCDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        viewModel.onUpdate = {
+            self.fetchCart()
+            self.cartView.tableView.reloadData()
+        }
         self.fetchCart()
     }
     
@@ -44,10 +47,10 @@ final class CartVC: UIViewController, LoginVCDelegate {
     }
 
     private func setViews() {
-        if let isUserLogin = Global.isUserLogin, isUserLogin.isEmpty {
-            self.switchEmptyView()
-        } else {
+        if let isUserLogin = Global.isUserLogin, !isUserLogin.isEmpty {
             self.switchCartView()
+        } else {
+            self.switchEmptyView()
         }
     }
     
@@ -57,6 +60,7 @@ final class CartVC: UIViewController, LoginVCDelegate {
     }
     
     private func switchCartView() {
+        cartView.delegate = self
         view = cartView
         self.emptyView.removeFromSuperview()
     }
@@ -74,5 +78,31 @@ extension CartVC : UIEmptyCartDelegate {
         vc.delegate = self
         self.navigationController?.present(vc, animated: true)
     }
+}
+
+extension CartVC : UICartViewDelegate {
+    func checkoutButtonTapped(_ cartItem: [Product], _ totalAmount: Double, _ totalCount: Int) {
+        let alert1 = UIAlertController(title: "Success", message: "Buy is success", preferredStyle: .alert)
+        let alertAction1 = UIAlertAction(title: "OK", style: .default)
+            
+        alert1.addAction(alertAction1)
+        
+        let alert = UIAlertController(title: "Confirm Cart", message: "Cart Total Amount: $\(totalAmount) for \(totalCount) products.", preferredStyle: .actionSheet)
+        let alertAction = UIAlertAction(title: "Checkout", style: .cancel) { (action) in
+            self.viewModel.checkout(cartItem.first!) { status in
+                self.viewModel.deleteCart()
+                self.present(alert1, animated: true)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+
+        alert.addAction(alertAction)
+        alert.addAction(cancelAction)
+        
+
+        
+        self.present(alert,animated: true)
+    }
+
 }
 

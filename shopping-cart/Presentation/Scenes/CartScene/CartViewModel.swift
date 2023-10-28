@@ -8,9 +8,21 @@
 final class CartViewModel {
     
     private var cartUseCase: CartUseCase
+    var onUpdate: () -> Void = {}
     
     init(cartUseCase: CartUseCase) {
         self.cartUseCase = cartUseCase
+    }
+    
+    func checkout(_ product:Product, completion: @escaping (Bool) -> Void) {
+        self.cartUseCase.executeCartCheckout(product) { response in
+            switch response {
+            case .success(_):
+                completion(true)
+            case .failure(_):
+                completion(false)
+            }
+        }
     }
     
     func fetchCart(_ completion: @escaping ([Product]) -> Void) {
@@ -21,6 +33,12 @@ final class CartViewModel {
             case .failure(let error):
                 print(error)
             }
+        }
+    }
+    
+    func deleteCart() {
+        DBManager.shared.deleteCart { process in
+            self.onUpdate()
         }
     }
 }

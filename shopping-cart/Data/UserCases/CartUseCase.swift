@@ -13,7 +13,13 @@ final class CartUseCase: ICartUseCase {
     }
     
     func executeAddToCart(_ product: Product,_ completion: @escaping (NetworkConstants.CartItemResponse) -> Void) {
-        self.cartRepository.addToCartItem(product) { (response) in
+        self.cartRepository.cartCheckout(product) { (response) in
+            completion(response)
+        }
+    }
+    
+    func executeCartCheckout(_ product: Product,_ completion: @escaping (NetworkConstants.CartItemResponse) -> Void) {
+        self.cartRepository.cartCheckout(product) { (response) in
             completion(response)
         }
     }

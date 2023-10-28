@@ -13,9 +13,22 @@ final class CartRepository : ICartRepository {
         self.network = network
     }
     
-    func addToCartItem(_ product: Product, _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void) {
+    func addToCart(_ product: Product, _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void) {
         let cartItem = CartItem(userId: 5,date: "", products: [CartProducts(productId: product.id, quantity: 1)])
         self.network.request(ApiRouter.addToCart(item: cartItem))
+        { (result: NetworkConstants.CartItemResponse) in
+            switch result {
+            case .success(let value):
+                return completion(.success(value))
+            case .failure(let error):
+                return completion(.failure(error))
+            }
+        }
+    }
+    
+    func cartCheckout(_ product: Product, _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void) {
+        let cartItem = CartItem(userId: 5,date: "", products: [CartProducts(productId: product.id, quantity: 1)])
+        self.network.request(ApiRouter.checkout(item: cartItem))
         { (result: NetworkConstants.CartItemResponse) in
             switch result {
             case .success(let value):

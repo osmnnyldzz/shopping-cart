@@ -8,8 +8,14 @@
 import UIKit
 import Kingfisher
 
+protocol UICartViewDelegate : AnyObject {
+    func checkoutButtonTapped(_ cartItem: [Product], _ totalAmount: Double,_ totalCount:Int)
+}
+
 final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
-        
+    
+    weak var delegate: UICartViewDelegate?
+    
     var cartItem = [Product]()
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,6 +105,7 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
         btn.setTitleColor(.black, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Checkout", for: .normal)
+        btn.addTarget(self, action: #selector(checkoutButtonTapped), for: .touchUpInside)
         return btn
     }()
     
@@ -145,5 +152,9 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
         checkoutButton.snp.makeConstraints { make in
             make.height.equalTo(snp.height).multipliedBy(0.075)
         }
+    }
+    
+    @objc func checkoutButtonTapped() {
+        delegate?.checkoutButtonTapped(cartItem, cartItem.reduce(0.0) { $0 + ($1.price ?? 0.0)}, cartItem.count)
     }
 }

@@ -53,5 +53,16 @@ final class DBManager {
             return []
         }
     }
+        
+    func deleteCart(completion: @escaping(_ process:Bool) -> Void) {
+        do {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartDB")
+            let batch = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            try moc.execute(batch)
+            completion(true)
+        } catch _ {
+            completion(false)
+        }
+    }
     
 }

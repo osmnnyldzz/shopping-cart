@@ -6,6 +6,7 @@
 //
 
 protocol ICartRepository {
-    func addToCartItem(_ product: Product, _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void)
+    func addToCart(_ product: Product, _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void)
+    func cartCheckout(_ product: Product, _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void)
     func fetchCart(_ completion: @escaping (NetworkConstants.CartAllResponse) -> Void)
 }
