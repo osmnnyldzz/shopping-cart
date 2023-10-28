@@ -12,7 +12,7 @@ protocol UIHomeViewDelegate: AnyObject {
     func categoryTapped(categoryName:String)
 }
 
-class UIHomeView: UIView {
+final class UIHomeView: UIView {
     
     var categories: Categories?
     weak var delegate: UIHomeViewDelegate?

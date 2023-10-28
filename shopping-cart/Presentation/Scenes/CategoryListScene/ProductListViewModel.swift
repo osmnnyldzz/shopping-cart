@@ -1,11 +1,11 @@
 //
-//  CategoryListViewModel.swift
+//  ProductListViewModel.swift
 //  shopping-cart
 //
 //  Created by Osman Yıldız on 26.10.2023.
 //
 
-final class CategoryListViewModel {
+final class ProductListViewModel {
     private var productUseCase: ProductUseCase
     private var cartUseCase: CartUseCase
     
@@ -14,13 +14,14 @@ final class CategoryListViewModel {
         self.cartUseCase = cartUseCase
     }
     
-    func addToCartItem(_ product: Product) {
+    func addToCartItem(_ product: Product, completion: @escaping (Bool) -> Void) {
         self.cartUseCase.executeAddToCart(product) { response in
             switch response {
             case .success(_):
                 DBManager.shared.addToCart(product)
-            case .failure(let error):
-                print(error)
+                completion(true)
+            case .failure(_):
+                completion(false)
             }
         }
     }

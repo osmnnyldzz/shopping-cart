@@ -40,8 +40,8 @@ class DIContainer {
     }
 
     // CategoryList Scene Prepare
-    func categoryListViewModel() -> CategoryListViewModel {
-        return CategoryListViewModel(productUseCase: createProductUseCase(), cartUseCase: createCartUseCase())
+    func categoryListViewModel() -> ProductListViewModel {
+        return ProductListViewModel(productUseCase: createProductUseCase(), cartUseCase: createCartUseCase())
     }
     
     // Cart Scene Prepare

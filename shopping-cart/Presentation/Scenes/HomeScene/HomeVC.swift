@@ -46,7 +46,7 @@ extension HomeVC {
 
 extension HomeVC: UIHomeViewDelegate {
     func categoryTapped(categoryName:String) {
-        let vc = CategoryListViewController(viewModel: DIContainer.instance.categoryListViewModel())
+        let vc = ProductListVC(viewModel: DIContainer.instance.categoryListViewModel())
         
         self.viewModel?.fetchAllSingleCategory(categoryName: categoryName) { [weak self] response in
             guard let self = self else { return }
