@@ -24,8 +24,6 @@ final class CartVC: UIViewController, LoginVCDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +33,7 @@ final class CartVC: UIViewController, LoginVCDelegate {
             self.cartView.tableView.reloadData()
         }
         self.fetchCart()
+        self.setViews()
     }
     
     private func fetchCart() {
@@ -57,17 +56,29 @@ final class CartVC: UIViewController, LoginVCDelegate {
     private func switchEmptyView() {
         emptyView.delegate = self
         view = emptyView
+        self.navigationItem.setRightBarButton(nil, animated: true)
     }
     
     private func switchCartView() {
         cartView.delegate = self
         view = cartView
         self.emptyView.removeFromSuperview()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
     }
     
     func loginStatus() {
         self.dismiss(animated: true) {
             self.switchCartView()
+        }
+    }
+    
+    @objc func logout(){
+        viewModel.logout {
+            if let isUserLogin = Global.isUserLogin, !isUserLogin.isEmpty {
+                self.switchCartView()
+            } else {
+                self.switchEmptyView()
+            }
         }
     }
 }
@@ -82,7 +93,7 @@ extension CartVC : UIEmptyCartDelegate {
 
 extension CartVC : UICartViewDelegate {
     func checkoutButtonTapped(_ cartItem: [Product], _ totalAmount: Double, _ totalCount: Int) {
-        let alert1 = UIAlertController(title: "Success", message: "Buy is success", preferredStyle: .alert)
+        let alert1 = UIAlertController(title: "Success", message: "Success", preferredStyle: .alert)
         let alertAction1 = UIAlertAction(title: "OK", style: .default)
             
         alert1.addAction(alertAction1)
@@ -98,8 +109,6 @@ extension CartVC : UICartViewDelegate {
 
         alert.addAction(alertAction)
         alert.addAction(cancelAction)
-        
-
         
         self.present(alert,animated: true)
     }

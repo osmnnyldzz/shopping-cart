@@ -41,4 +41,9 @@ final class CartViewModel {
             self.onUpdate()
         }
     }
+    
+    func logout(_ completion: @escaping () -> Void) {
+        Global.isUserLogin = nil
+        completion()
+    }
 }
