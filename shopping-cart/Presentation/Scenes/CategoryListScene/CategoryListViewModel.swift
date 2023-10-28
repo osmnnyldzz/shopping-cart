@@ -17,8 +17,8 @@ final class CategoryListViewModel {
     func addToCartItem(_ product: Product) {
         self.cartUseCase.executeAddToCart(product) { response in
             switch response {
-            case .success(let value):
-                print(value.id)
+            case .success(_):
+                DBManager.shared.addToCart(product)
             case .failure(let error):
                 print(error)
             }

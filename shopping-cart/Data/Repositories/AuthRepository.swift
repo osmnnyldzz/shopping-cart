@@ -6,7 +6,6 @@
 //
 
 final class AuthRepository: IAuthRepository {
-    typealias UserResponse = Result<[User], Error>
 
     private var network: ApiService
     
@@ -14,8 +13,8 @@ final class AuthRepository: IAuthRepository {
         self.network = network
     }
     
-    func fetchUsers(_ completion: @escaping (UserResponse) -> Void) {
-        self.network.request(ApiRouter.fetchUser, completion: { (result: UserResponse) in
+    func login(_ username: String, _ password: String, _ completion: @escaping (NetworkConstants.UserResponse) -> Void) {
+        self.network.request(ApiRouter.login(username: username, password: password), completion: { (result: NetworkConstants.UserResponse) in
             switch result {
             case .success(let value):
                 return completion(.success(value))

@@ -9,7 +9,7 @@ import Alamofire
 enum ApiRouter: URLRequestConvertible {
 
     case fetchCategories
-    case fetchUser
+    case login(username:String, password:String)
     case fetchAllProducts
     case fetchSingleCategory(category:String)
     case addToCart(item:CartItem)
@@ -41,8 +41,8 @@ enum ApiRouter: URLRequestConvertible {
             return "products/categories"
         case .fetchSingleCategory(let category):
             return "products/category/\(category)"
-        case .fetchUser:
-            return "users"
+        case .login:
+            return "auth/login"
         case .fetchAllProducts:
             return "products"
         case .addToCart:
@@ -58,8 +58,8 @@ enum ApiRouter: URLRequestConvertible {
             return .get
         case .fetchSingleCategory:
             return .get
-        case .fetchUser:
-            return .get
+        case .login:
+            return .post
         case .fetchAllProducts:
             return .get
         case .addToCart:
@@ -75,8 +75,8 @@ enum ApiRouter: URLRequestConvertible {
             return [:]
         case .fetchSingleCategory:
             return [:]
-        case .fetchUser:
-            return [:]
+        case .login(let username, let password):
+            return ["username":username, "password": password]
         case .fetchAllProducts:
             return [:]
         case .addToCart(let item):

@@ -13,7 +13,8 @@ struct NetworkConstants {
     typealias ProductResponse           = Result<[Product],     Error>
     typealias CartItemResponse          = Result<CartResponse,  Error>
     typealias CartAllResponse           = Result<[CartItem],    Error>
-    
+    typealias UserResponse              = Result<LoginResponse, Error>
+
     enum HttpHeaderField: String {
         case contentType = "Content-Type"
         case acceptType = "Accept"

@@ -135,7 +135,3 @@ final class CategoryListCollectionViewCell: UICollectionViewCell {
         delegate?.addToCartButtonTapped(sender: sender)
     }
 }
-
-#Preview {
-    CategoryListCollectionViewCell()
-}

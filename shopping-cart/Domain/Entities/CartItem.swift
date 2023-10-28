@@ -12,7 +12,7 @@ struct CartItem: Codable {
 }
 
 struct CartProducts: Codable {
-    var productId:Int? = nil
+    var productId:Int16? = nil
     var quantity:Int? = nil
 }
 

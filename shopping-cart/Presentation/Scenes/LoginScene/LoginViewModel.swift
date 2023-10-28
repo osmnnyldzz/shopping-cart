@@ -13,11 +13,14 @@ final class LoginViewModel {
         self.authUseCase = authUseCase
     }
     
-    func fetchUser() {
-        self.authUseCase.execute { (response) in
+    func login(_ username:String, _ password:String,_ completion: @escaping () -> Void) {
+        self.authUseCase.execute(username, password) { (response) in
             switch response {
             case .success(let value):
-                print(value)
+                if let token = value.token {
+                    Global.isUserLogin = token
+                    completion()
+                }
             case .failure(let error):
                 print(error)
             }

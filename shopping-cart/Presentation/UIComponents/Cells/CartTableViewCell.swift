@@ -38,9 +38,8 @@ class CartTableViewCell: UITableViewCell {
         return sv
     }()
     
-    private lazy var productImage: UIImageView = {
+     lazy var productImage: UIImageView = {
         let img = UIImageView()
-        img.backgroundColor = .blue
         img.image = UIImage(systemName: "photo.on.rectangle")
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
@@ -49,22 +48,20 @@ class CartTableViewCell: UITableViewCell {
     private lazy var infoAreaColumn: UIStackView = {
         let sv = UIStackView()
         sv.distribution = .fillEqually
-        sv.backgroundColor = .green
         sv.spacing = 8
         sv.axis = .vertical
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
     
-    private lazy var productTitleLabel: UILabel = {
+     lazy var productTitleLabel: UILabel = {
        let lbl = UILabel()
-        lbl.text = "Test"
+         lbl.numberOfLines = 0
         return lbl
     }()
     
-    private lazy var priceTitleLabel: UILabel = {
+     lazy var priceTitleLabel: UILabel = {
        let lbl = UILabel()
-        lbl.text = "Test"
         return lbl
     }()
     
@@ -78,7 +75,7 @@ class CartTableViewCell: UITableViewCell {
     private func setConstraints() {
         baseView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-8)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
@@ -106,8 +103,4 @@ class CartTableViewCell: UITableViewCell {
 
     }
 
-}
-
-#Preview {
-    CartTableViewCell(style: .default, reuseIdentifier: "")
 }

@@ -45,6 +45,14 @@
 		A09385F32AEBF7A30032EEE5 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385F22AEBF7A30032EEE5 /* CartViewModel.swift */; };
 		A09385F52AEC5CE70032EEE5 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385F42AEC5CE70032EEE5 /* CartVC.swift */; };
 		A09385F72AEC6C060032EEE5 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385F62AEC6C060032EEE5 /* CartTableViewCell.swift */; };
+		A09385F92AEC8BDE0032EEE5 /* UIEmptyCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385F82AEC8BDE0032EEE5 /* UIEmptyCart.swift */; };
+		A09385FB2AEC928D0032EEE5 /* UILoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385FA2AEC928D0032EEE5 /* UILoginView.swift */; };
+		A09385FD2AEC98390032EEE5 /* UICartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385FC2AEC98390032EEE5 /* UICartView.swift */; };
+		A09385FF2AEC9C4B0032EEE5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09385FE2AEC9C4B0032EEE5 /* UIView+Extensions.swift */; };
+		A09386012AED14E40032EEE5 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09386002AED14E40032EEE5 /* Global.swift */; };
+		A093860E2AED2A8B0032EEE5 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093860D2AED2A8B0032EEE5 /* DBManager.swift */; };
+		A09386152AED2D080032EEE5 /* CartDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09386132AED2D080032EEE5 /* CartDB+CoreDataClass.swift */; };
+		A09386162AED2D080032EEE5 /* CartDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09386142AED2D080032EEE5 /* CartDB+CoreDataProperties.swift */; };
 		EFEE9C0F222A06491EBEA9F9 /* Pods_shopping_cart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC082AE15F359118D4B82D /* Pods_shopping_cart.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +99,14 @@
 		A09385F22AEBF7A30032EEE5 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		A09385F42AEC5CE70032EEE5 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		A09385F62AEC6C060032EEE5 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		A09385F82AEC8BDE0032EEE5 /* UIEmptyCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEmptyCart.swift; sourceTree = "<group>"; };
+		A09385FA2AEC928D0032EEE5 /* UILoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoginView.swift; sourceTree = "<group>"; };
+		A09385FC2AEC98390032EEE5 /* UICartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICartView.swift; sourceTree = "<group>"; };
+		A09385FE2AEC9C4B0032EEE5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		A09386002AED14E40032EEE5 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		A093860D2AED2A8B0032EEE5 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		A09386132AED2D080032EEE5 /* CartDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartDB+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		A09386142AED2D080032EEE5 /* CartDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartDB+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		BFD6D7A83CDB73852900BF49 /* Pods-shopping-cart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-cart.debug.xcconfig"; path = "Target Support Files/Pods-shopping-cart/Pods-shopping-cart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,7 +206,6 @@
 				A093859C2AE98B890032EEE5 /* Utils */,
 				A093858C2AE989470032EEE5 /* Assets.xcassets */,
 				A09385912AE989470032EEE5 /* Info.plist */,
-				A09385892AE989440032EEE5 /* shopping_cart.xcdatamodeld */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -208,6 +223,7 @@
 		A093859D2AE98BAC0032EEE5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A09385FE2AEC9C4B0032EEE5 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +239,7 @@
 		A093859F2AE98BDA0032EEE5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A09386042AED27880032EEE5 /* Persistent Storage */,
 				A09385B02AE9B6680032EEE5 /* ApiService.swift */,
 				A09385C92AEA6F6D0032EEE5 /* ApiRouter.swift */,
 			);
@@ -263,6 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				A09385DF2AEAF4DC0032EEE5 /* Cells */,
+				A09385F82AEC8BDE0032EEE5 /* UIEmptyCart.swift */,
+				A09385FA2AEC928D0032EEE5 /* UILoginView.swift */,
+				A09385FC2AEC98390032EEE5 /* UICartView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -339,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				A09385CC2AEA71320032EEE5 /* NetworkConstants.swift */,
+				A09386002AED14E40032EEE5 /* Global.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -377,6 +398,17 @@
 				A09385F42AEC5CE70032EEE5 /* CartVC.swift */,
 			);
 			path = CartScene;
+			sourceTree = "<group>";
+		};
+		A09386042AED27880032EEE5 /* Persistent Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A09386132AED2D080032EEE5 /* CartDB+CoreDataClass.swift */,
+				A09386142AED2D080032EEE5 /* CartDB+CoreDataProperties.swift */,
+				A09385892AE989440032EEE5 /* shopping_cart.xcdatamodeld */,
+				A093860D2AED2A8B0032EEE5 /* DBManager.swift */,
+			);
+			path = "Persistent Storage";
 			sourceTree = "<group>";
 		};
 		CC58A70620BF962C82FD0F36 /* Frameworks */ = {
@@ -503,7 +535,10 @@
 			files = (
 				A09385C82AEA4D450032EEE5 /* HomeCollectionViewCell.swift in Sources */,
 				A09385AC2AE9B5DE0032EEE5 /* IAuthRepository.swift in Sources */,
+				A09385F92AEC8BDE0032EEE5 /* UIEmptyCart.swift in Sources */,
+				A093860E2AED2A8B0032EEE5 /* DBManager.swift in Sources */,
 				A09385BB2AE9BABF0032EEE5 /* DIContainer.swift in Sources */,
+				A09386162AED2D080032EEE5 /* CartDB+CoreDataProperties.swift in Sources */,
 				A09385F72AEC6C060032EEE5 /* CartTableViewCell.swift in Sources */,
 				A09385E42AEB13DF0032EEE5 /* TabBarController.swift in Sources */,
 				A09385D32AEA98F70032EEE5 /* IProductUseCase.swift in Sources */,
@@ -512,16 +547,21 @@
 				A09385DE2AEAF4A10032EEE5 /* CategoryListViewController.swift in Sources */,
 				A09385812AE989440032EEE5 /* AppDelegate.swift in Sources */,
 				A09385CF2AEA98290032EEE5 /* Categories.swift in Sources */,
+				A09386012AED14E40032EEE5 /* Global.swift in Sources */,
 				A09385E12AEAF53D0032EEE5 /* CategoryListCollectionViewCell.swift in Sources */,
 				A09385D12AEA988A0032EEE5 /* IProductRepository.swift in Sources */,
 				A09385CA2AEA6F6D0032EEE5 /* ApiRouter.swift in Sources */,
 				A09385E82AEBE4E20032EEE5 /* ICartRepository.swift in Sources */,
 				A09385AA2AE9B59D0032EEE5 /* IAuthUseCase.swift in Sources */,
+				A09386152AED2D080032EEE5 /* CartDB+CoreDataClass.swift in Sources */,
 				A09385832AE989440032EEE5 /* SceneDelegate.swift in Sources */,
 				A09385EA2AEBE4F10032EEE5 /* ICartUseCase.swift in Sources */,
 				A09385EC2AEBE54F0032EEE5 /* CartItem.swift in Sources */,
 				A09385D52AEA99540032EEE5 /* ProductRepository.swift in Sources */,
+				A09385FD2AEC98390032EEE5 /* UICartView.swift in Sources */,
+				A09385FF2AEC9C4B0032EEE5 /* UIView+Extensions.swift in Sources */,
 				A09385D92AEAEB9C0032EEE5 /* Product.swift in Sources */,
+				A09385FB2AEC928D0032EEE5 /* UILoginView.swift in Sources */,
 				A09385C62AEA477F0032EEE5 /* LoginViewModel.swift in Sources */,
 				A09385B12AE9B6680032EEE5 /* ApiService.swift in Sources */,
 				A09385BE2AE9C00A0032EEE5 /* HomeViewModel.swift in Sources */,

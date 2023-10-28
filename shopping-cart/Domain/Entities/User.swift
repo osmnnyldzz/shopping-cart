@@ -42,3 +42,7 @@ struct UserAddress:Codable {
         case city
     }
 }
+
+struct LoginResponse : Codable {
+    var token:String? = ""
+}

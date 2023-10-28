@@ -13,11 +13,11 @@ final class CartViewModel {
         self.cartUseCase = cartUseCase
     }
     
-    func fetchCart(_ completion: @escaping ([CartItem]) -> Void) {
+    func fetchCart(_ completion: @escaping ([Product]) -> Void) {
         self.cartUseCase.executeFetchCart { response in
             switch response {
-            case .success(let value):
-                completion(value)
+            case .success(_):
+                completion(DBManager.shared.fetchCart())
             case .failure(let error):
                 print(error)
             }

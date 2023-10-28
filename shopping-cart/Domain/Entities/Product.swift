@@ -6,7 +6,7 @@
 //
 
 struct Product: Codable {
-    var id: Int? = nil
+    var id: Int16? = nil
     var title:String? = nil
     var price: Double? = nil
     var category: String? = nil

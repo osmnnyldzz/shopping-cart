@@ -54,10 +54,8 @@ class CategoryListViewController: UIViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-8.0)
             make.leading.equalTo(self.view.snp.leading).offset(8.0)
             make.trailing.equalTo(self.view.snp.trailing).offset(-8.0)
-          
         }
     }
-    
 }
 
 extension CategoryListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -71,7 +69,7 @@ extension CategoryListViewController: UICollectionViewDelegate, UICollectionView
         
         cell.delegate = self
         cell.productImage.kf.setImage(with: URL(string: data.image ?? "") )
-        cell.productPrice.text = "\(data.price ?? 0.0) TL"
+        cell.productPrice.text = "$\(data.price ?? 0.0)"
         cell.productTitle.text = data.title ?? ""
         cell.addToCartButton.tag = indexPath.row
         return cell

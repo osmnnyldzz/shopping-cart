@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol LoginVCDelegate: AnyObject {
+    func loginStatus()
+}
+
 final class LoginVC: UIViewController {
     
     private var viewModel: LoginViewModel!
+    weak var delegate: LoginVCDelegate!
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -20,10 +25,24 @@ final class LoginVC: UIViewController {
         fatalError("")
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchUser()
+        self.view.backgroundColor = .white
+        self.title = "Login"
+        self.setViews()
     }
+    
+    private func setViews() {
+        let loginView = UILoginView()
+        loginView.delegate = self
+        view = loginView
+    }
+}
 
+extension LoginVC: UILoginViewDelegate {
+    func loginButtonTapped(username: String, password: String) {
+        viewModel.login(username, password, {
+            self.delegate?.loginStatus()
+        })
+    }
 }

@@ -6,7 +6,5 @@
 //
 
 protocol IAuthRepository {
-    typealias UserResponse = Result<[User], Error>
-    
-    func fetchUsers(_ completion: @escaping (UserResponse) -> Void)
+    func login(_ username: String, _ password: String, _ completion: @escaping (NetworkConstants.UserResponse) -> Void)
 }
