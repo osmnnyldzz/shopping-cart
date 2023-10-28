@@ -12,10 +12,10 @@ protocol UILoginViewDelegate : AnyObject {
     func loginButtonTapped(username:String, password:String)
 }
 
-class UILoginView: UIView {
+final class UILoginView: UIView {
     
     weak var delegate: UILoginViewDelegate?
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupUI()
@@ -24,68 +24,67 @@ class UILoginView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private lazy var baseView: UIView = {
         let view = UIView()
         return view
     }()
     
     private lazy var baseColumn: UIStackView = {
-       let sv = UIStackView()
+        let sv = UIStackView()
         sv.axis = .vertical
         sv.distribution = .fillEqually
-       return sv
+        return sv
     }()
     
     private lazy var imgView: UIImageView = {
-       let img = UIImageView()
+        let img = UIImageView()
         img.image = UIImage(systemName: "person.and.background.dotted")
         img.contentMode = .scaleAspectFit
-       return img
+        return img
     }()
     
     private lazy var loginAreaColumn: UIStackView = {
-       let sv = UIStackView()
+        let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 8
         sv.distribution = .fillProportionally
-       return sv
+        return sv
     }()
     
     private lazy var userField: UITextField = {
-       let txtField = UITextField()
-        txtField.addBorder(width: 1, color: .systemGray, radius: 4)
+        let txtField = UITextField()
+        txtField.addBorder()
         txtField.placeholder = "Username"
-        txtField.text = "mor_2314"
+        txtField.text = "derek" // Demo Account
         txtField.backgroundColor = .white
-       return txtField
+        return txtField
     }()
     
     private lazy var passwordField: UITextField = {
-       let txtField = UITextField()
-        txtField.addBorder(width: 1, color: .systemGray, radius: 4)
+        let txtField = UITextField()
+        txtField.addBorder()
         txtField.placeholder = "Password"
-        txtField.text = "83r5^_"
+        txtField.text = "jklg*_56" // Demo Account
         txtField.backgroundColor = .white
-       return txtField
+        return txtField
     }()
     
     private lazy var loginButton: UIButton = {
-       let btn = UIButton()
-        btn.addBorder(width: 1, color: .systemGray, radius: 4)
+        let btn = UIButton()
+        btn.addBorder()
         btn.setTitle("Login", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-       return btn
+        return btn
     }()
     
     private lazy var demoAccountsLabel: UILabel = {
-       let lbl = UILabel()
-        lbl.backgroundColor = .systemGray5
-        lbl.text = "username: donero password: ewedon"
+        let lbl = UILabel()
+        lbl.text = "Demo Account Information\n"
         lbl.textAlignment = .center
         lbl.font = UIFont.systemFont(ofSize: 13)
-       return lbl
+        return lbl
     }()
     
     private func setupUI() {

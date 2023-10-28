@@ -12,6 +12,9 @@ final class CartVC: UIViewController, LoginVCDelegate {
     private var viewModel: CartViewModel!
     private let emptyView = UIEmptyCart()
     private let cartView = UICartView()
+    private lazy var completeAlert = UIAlertController()
+    private lazy var checkoutAlert = UIAlertController()
+    private lazy var errorAlert = UIAlertController()
     
     init(viewModel: CartViewModel) {
         self.viewModel = viewModel
@@ -40,11 +43,11 @@ final class CartVC: UIViewController, LoginVCDelegate {
         viewModel.fetchCart { [weak self] response in
             guard let self = self else { return }
             cartView.cartItem = response
-            cartView.priceLabel.text = "$\(response.reduce(0.0) { $0 + ($1.price ?? 0.0)})"
+            cartView.priceLabel.text = "$\(response.reduce(0.0) { $0 + ($1.price ?? 0.0)}.roundedToTwoDecimalPlaces())"
             cartView.tableView.reloadData()
         }
     }
-
+    
     private func setViews() {
         if let isUserLogin = Global.isUserLogin, !isUserLogin.isEmpty {
             self.switchCartView()
@@ -63,7 +66,10 @@ final class CartVC: UIViewController, LoginVCDelegate {
         cartView.delegate = self
         view = cartView
         self.emptyView.removeFromSuperview()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout",
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(logout))
     }
     
     func loginStatus() {
@@ -92,26 +98,55 @@ extension CartVC : UIEmptyCartDelegate {
 }
 
 extension CartVC : UICartViewDelegate {
-    func checkoutButtonTapped(_ cartItem: [Product], _ totalAmount: Double, _ totalCount: Int) {
-        let alert1 = UIAlertController(title: "Success", message: "Success", preferredStyle: .alert)
-        let alertAction1 = UIAlertAction(title: "OK", style: .default)
-            
-        alert1.addAction(alertAction1)
+    func checkoutButtonTapped(_ cartItem: [Product], _ totalAmount: Double) {
+        if cartItem.count > 0 {
+            self.completeAlertActions()
+            self.checkoutAlert(cartItem,totalAmount)
+        } else {
+            self.errorAlertActions()
+        }
         
-        let alert = UIAlertController(title: "Confirm Cart", message: "Cart Total Amount: $\(totalAmount) for \(totalCount) products.", preferredStyle: .actionSheet)
-        let alertAction = UIAlertAction(title: "Checkout", style: .cancel) { (action) in
-            self.viewModel.checkout(cartItem.first!) { status in
+    }
+}
+
+// Alert
+extension CartVC {
+    private func errorAlertActions() {
+        errorAlert = UIAlertController(title: "Error",
+                                          message: "There are no products in your cart.",
+                                          preferredStyle: .alert)
+        
+        errorAlert.addAction(title: "Okay",style: .destructive)
+        
+        self.present(errorAlert, animated: true, completion: nil)
+
+    }
+    
+    private func completeAlertActions() {
+        completeAlert = UIAlertController(title: "Success",
+                                          message: "Shopping Completed",
+                                          preferredStyle: .alert)
+        
+        completeAlert.addAction(title: "Okay")
+    }
+    
+    private func checkoutAlert(_ cartItem: [Product], _ totalAmount: Double) {
+        checkoutAlert = UIAlertController(title: "Confirm Cart",
+                                          message: "Cart Total Amount: $\(totalAmount.roundedToTwoDecimalPlaces()) for \(cartItem.count) products.",
+                                          preferredStyle: .actionSheet)
+        
+        
+        
+        checkoutAlert.addAction(title: "Checkout") { (action) in
+            self.viewModel.checkout(cartItem) { status in
                 self.viewModel.deleteCart()
-                self.present(alert1, animated: true)
+                self.present(self.completeAlert, animated: true)
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
-
-        alert.addAction(alertAction)
-        alert.addAction(cancelAction)
         
-        self.present(alert,animated: true)
+        checkoutAlert.addAction(title: "Cancel",style: .destructive)
+        
+        self.present(checkoutAlert, animated: true, completion: nil)
     }
-
 }
 

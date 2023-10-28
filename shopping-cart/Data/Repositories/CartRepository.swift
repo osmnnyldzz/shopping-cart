@@ -14,7 +14,7 @@ final class CartRepository : ICartRepository {
     }
     
     func addToCart(_ product: Product, _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void) {
-        let cartItem = CartItem(userId: 5,date: "", products: [CartProducts(productId: product.id, quantity: 1)])
+        let cartItem = CartItem(userId: 5, date: "", products: [CartProducts(productId: product.id, quantity: 1)])
         self.network.request(ApiRouter.addToCart(item: cartItem))
         { (result: NetworkConstants.CartItemResponse) in
             switch result {
@@ -26,8 +26,13 @@ final class CartRepository : ICartRepository {
         }
     }
     
-    func cartCheckout(_ product: Product, _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void) {
-        let cartItem = CartItem(userId: 5,date: "", products: [CartProducts(productId: product.id, quantity: 1)])
+    func cartCheckout(_ product: [Product], _ completion: @escaping (NetworkConstants.CartItemResponse) -> Void) {
+        
+
+        let cartItem = product.compactMap { item in
+            CartItem(userId: 5, date: "", products: [CartProducts(productId: item.id, quantity: 1)])
+        }
+        
         self.network.request(ApiRouter.checkout(item: cartItem))
         { (result: NetworkConstants.CartItemResponse) in
             switch result {

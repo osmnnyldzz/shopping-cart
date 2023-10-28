@@ -12,7 +12,7 @@ enum ApiRouter: URLRequestConvertible {
     case login(username:String, password:String)
     case fetchAllProducts
     case fetchSingleCategory(category:String)
-    case checkout(item:CartItem)
+    case checkout(item:[CartItem])
     case addToCart(item:CartItem)
     case fetchCart
     
@@ -84,9 +84,9 @@ enum ApiRouter: URLRequestConvertible {
             return ["username":username, "password": password]
         case .fetchAllProducts:
             return [:]
-        case .checkout(let item):
+        case .checkout(_):
             return [
-                "userId": item.userId ?? -1,
+                "userId": 5,
                 "products": [
                     ["productId":5],
                     ["quantity":1]

@@ -14,7 +14,7 @@ final class CartViewModel {
         self.cartUseCase = cartUseCase
     }
     
-    func checkout(_ product:Product, completion: @escaping (Bool) -> Void) {
+    func checkout(_ product:[Product], completion: @escaping (Bool) -> Void) {
         self.cartUseCase.executeCartCheckout(product) { response in
             switch response {
             case .success(_):

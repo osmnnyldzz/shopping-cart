@@ -27,15 +27,13 @@ final class CategoryListCollectionViewCell: UICollectionViewCell {
     }
     
     lazy var baseContainer: UIView = {
-       let view = UIView()
-        view.layer.borderColor = UIColor.systemGray4.cgColor
-        view.layer.cornerRadius = 8
-        view.layer.borderWidth = 0.5
+        let view = UIView()
+        view.addBorder()
         return view
     }()
     
     lazy var baseColumn: UIStackView = {
-       let stackView = UIStackView()
+        let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +49,7 @@ final class CategoryListCollectionViewCell: UICollectionViewCell {
     }()
     
     lazy var productTitle: UILabel = {
-       let lbl = UILabel()
+        let lbl = UILabel()
         lbl.textColor = .black
         lbl.textAlignment = .center
         lbl.numberOfLines = 3
@@ -61,7 +59,7 @@ final class CategoryListCollectionViewCell: UICollectionViewCell {
         return lbl
     }()
     lazy var productImage: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.image = UIImage(systemName: "house")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,16 +67,16 @@ final class CategoryListCollectionViewCell: UICollectionViewCell {
     }()
     
     lazy var productPrice: UILabel = {
-       let lbl = UILabel()
+        let lbl = UILabel()
         lbl.textAlignment = .center
         lbl.font = UIFont.systemFont(ofSize: 13.0)
         lbl.textColor = .black
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
-    }()    
+    }()
     
     lazy var addToCartButton: UIButton = {
-       let btn = UIButton()
+        let btn = UIButton()
         btn.setImage(UIImage(systemName: "cart.fill.badge.plus"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(addToCartButtonTapped), for: .touchUpInside)

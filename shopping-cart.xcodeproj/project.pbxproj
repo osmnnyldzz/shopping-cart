@@ -56,6 +56,7 @@
 		A093861B2AED540D0032EEE5 /* UIHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093861A2AED540D0032EEE5 /* UIHomeView.swift */; };
 		A093861D2AED57B70032EEE5 /* UIProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093861C2AED57B70032EEE5 /* UIProductList.swift */; };
 		A093861F2AED5C920032EEE5 /* UIController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093861E2AED5C920032EEE5 /* UIController+Extensions.swift */; };
+		A09386212AED63480032EEE5 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09386202AED63480032EEE5 /* Double+Extensions.swift */; };
 		EFEE9C0F222A06491EBEA9F9 /* Pods_shopping_cart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDC082AE15F359118D4B82D /* Pods_shopping_cart.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		A093861A2AED540D0032EEE5 /* UIHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHomeView.swift; sourceTree = "<group>"; };
 		A093861C2AED57B70032EEE5 /* UIProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProductList.swift; sourceTree = "<group>"; };
 		A093861E2AED5C920032EEE5 /* UIController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIController+Extensions.swift"; sourceTree = "<group>"; };
+		A09386202AED63480032EEE5 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		BFD6D7A83CDB73852900BF49 /* Pods-shopping-cart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping-cart.debug.xcconfig"; path = "Target Support Files/Pods-shopping-cart/Pods-shopping-cart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +233,7 @@
 			children = (
 				A09385FE2AEC9C4B0032EEE5 /* UIView+Extensions.swift */,
 				A093861E2AED5C920032EEE5 /* UIController+Extensions.swift */,
+				A09386202AED63480032EEE5 /* Double+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,7 +305,7 @@
 				A09385E22AEB139E0032EEE5 /* Tabbar */,
 				A09385BF2AE9D34A0032EEE5 /* LoginScene */,
 				A09385BC2AE9BFD40032EEE5 /* HomeScene */,
-				A09385DA2AEAF45E0032EEE5 /* CategoryListScene */,
+				A09385DA2AEAF45E0032EEE5 /* ProductListScene */,
 				A09385F12AEBF7920032EEE5 /* CartScene */,
 			);
 			path = Scenes;
@@ -373,13 +376,13 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		A09385DA2AEAF45E0032EEE5 /* CategoryListScene */ = {
+		A09385DA2AEAF45E0032EEE5 /* ProductListScene */ = {
 			isa = PBXGroup;
 			children = (
 				A09385DD2AEAF4A10032EEE5 /* ProductListVC.swift */,
 				A09385DB2AEAF47B0032EEE5 /* ProductListViewModel.swift */,
 			);
-			path = CategoryListScene;
+			path = ProductListScene;
 			sourceTree = "<group>";
 		};
 		A09385DF2AEAF4DC0032EEE5 /* Cells */ = {
@@ -546,6 +549,7 @@
 				A09385AC2AE9B5DE0032EEE5 /* IAuthRepository.swift in Sources */,
 				A09385F92AEC8BDE0032EEE5 /* UIEmptyCart.swift in Sources */,
 				A093860E2AED2A8B0032EEE5 /* DBManager.swift in Sources */,
+				A09386212AED63480032EEE5 /* Double+Extensions.swift in Sources */,
 				A09385BB2AE9BABF0032EEE5 /* DIContainer.swift in Sources */,
 				A09386162AED2D080032EEE5 /* CartDB+CoreDataProperties.swift in Sources */,
 				A09385F72AEC6C060032EEE5 /* CartTableViewCell.swift in Sources */,

@@ -7,8 +7,8 @@
 
 import UIKit
 
-class CartTableViewCell: UITableViewCell {
-
+final class CartTableViewCell: UITableViewCell {
+    
     static let identifier = "CartTableViewCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -22,9 +22,7 @@ class CartTableViewCell: UITableViewCell {
     
     private lazy var baseView: UIView = {
         let view = UIView()
-        view.layer.borderColor = UIColor.systemGray.cgColor
-        view.layer.borderWidth = 1
-        view.layer.cornerRadius = 4
+        view.addBorder()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -38,9 +36,10 @@ class CartTableViewCell: UITableViewCell {
         return sv
     }()
     
-     lazy var productImage: UIImageView = {
+    lazy var productImage: UIImageView = {
         let img = UIImageView()
         img.image = UIImage(systemName: "photo.on.rectangle")
+        img.contentMode = .scaleAspectFit
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -54,14 +53,14 @@ class CartTableViewCell: UITableViewCell {
         return sv
     }()
     
-     lazy var productTitleLabel: UILabel = {
-       let lbl = UILabel()
-         lbl.numberOfLines = 0
+    lazy var productTitleLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.numberOfLines = 0
         return lbl
     }()
     
-     lazy var priceTitleLabel: UILabel = {
-       let lbl = UILabel()
+    lazy var priceTitleLabel: UILabel = {
+        let lbl = UILabel()
         return lbl
     }()
     
@@ -100,7 +99,6 @@ class CartTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
     }
-
 }

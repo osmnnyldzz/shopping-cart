@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 protocol UICartViewDelegate : AnyObject {
-    func checkoutButtonTapped(_ cartItem: [Product], _ totalAmount: Double,_ totalCount:Int)
+    func checkoutButtonTapped(_ cartItem: [Product], _ totalAmount: Double)
 }
 
 final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
@@ -21,8 +21,12 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath) as! CartTableViewCell
         let data = cartItem[indexPath.row]
-        cell.productImage.kf.setImage(with: URL(string: data.image ?? ""))
+        
+        cell.productImage.kf.setImage(with: URL(string: data.image ?? ""),
+                                      placeholder: UIImage(systemName: "house"))
+        
         cell.priceTitleLabel.text = "$\(data.price ?? 0.0)"
+        
         cell.productTitleLabel.text = data.title ?? ""
         return cell
     }
@@ -43,9 +47,9 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private lazy var baseView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -62,6 +66,8 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
     lazy var tableView: UITableView = {
         let tv = UITableView(frame: .zero)
         tv.isUserInteractionEnabled = true
+        tv.allowsSelection = false
+        tv.showsVerticalScrollIndicator = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
@@ -73,9 +79,9 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
-
+    
     private lazy var priceAreaColumn: UIStackView = {
-       let sv = UIStackView()
+        let sv = UIStackView()
         sv.distribution = .fillEqually
         sv.axis = .horizontal
         sv.translatesAutoresizingMaskIntoConstraints = false
@@ -99,9 +105,7 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     private lazy var checkoutButton: UIButton = {
         let btn = UIButton()
-        btn.layer.borderColor = UIColor.systemGray.cgColor
-        btn.layer.borderWidth = 1
-        btn.layer.cornerRadius = 4
+        btn.addBorder()
         btn.setTitleColor(.black, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Checkout", for: .normal)
@@ -110,7 +114,9 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
     }()
     
     private func setupUI() {
-        self.tableView.register(CartTableViewCell.self, forCellReuseIdentifier: CartTableViewCell.identifier)
+        self.tableView.register(CartTableViewCell.self, 
+                                forCellReuseIdentifier: CartTableViewCell.identifier)
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -155,6 +161,6 @@ final class UICartView: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func checkoutButtonTapped() {
-        delegate?.checkoutButtonTapped(cartItem, cartItem.reduce(0.0) { $0 + ($1.price ?? 0.0)}, cartItem.count)
+        delegate?.checkoutButtonTapped(cartItem, cartItem.reduce(0.0) { $0 + ($1.price ?? 0.0)})
     }
 }

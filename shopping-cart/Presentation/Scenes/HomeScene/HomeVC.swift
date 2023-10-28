@@ -26,7 +26,6 @@ final class HomeVC: UIViewController {
 extension HomeVC {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Shopping Cart"
         
         homeView.delegate = self

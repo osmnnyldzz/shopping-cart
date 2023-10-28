@@ -8,27 +8,27 @@
 import UIKit
 import SnapKit
 
-class HomeCollectionViewCell: UICollectionViewCell {
+final class HomeCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "HomeCollectionViewCell"
     
     lazy var categoryTitleLabel: UILabel = {
-       let lbl = UILabel()
-        lbl.textColor = .purple
+        let lbl = UILabel()
+        lbl.textColor = .blue
         lbl.textAlignment = .center
         lbl.font = UIFont.boldSystemFont(ofSize: 36.0)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
-    }()   
+    }()
     
     lazy var categoryBannerImageView: UIImageView = {
-       let imgView = UIImageView()
+        let imgView = UIImageView()
         imgView.image = UIImage(systemName: "photo.on.rectangle")
         imgView.contentMode = .scaleToFill
-        imgView.alpha = 0.2
-        imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.alpha = 0.35
         imgView.layer.cornerRadius = 8.0
         imgView.clipsToBounds = true
+        imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
     }()
     
@@ -45,11 +45,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
         addSubview(categoryTitleLabel)
         addSubview(categoryBannerImageView)
         
-        self.contentView.layer.borderColor = UIColor.gray.cgColor
-        self.contentView.layer.borderWidth = 1.0
-        self.contentView.layer.cornerRadius = 8
+        self.contentView.addBorder()
         
-        setConstraints() 
+        self.setConstraints()
         
     }
     
@@ -66,8 +64,4 @@ class HomeCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
     }
-}
-
-#Preview {
-    HomeCollectionViewCell()
 }

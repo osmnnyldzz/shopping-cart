@@ -12,7 +12,7 @@ protocol UIEmptyCartDelegate: AnyObject {
     func loginButtonTapped()
 }
 
-class UIEmptyCart: UIView {
+final class UIEmptyCart: UIView {
     
     weak var delegate:UIEmptyCartDelegate?
 
@@ -40,15 +40,13 @@ class UIEmptyCart: UIView {
     private lazy var titleLabel: UILabel = {
        let lbl = UILabel()
         lbl.textAlignment = .center
-        lbl.text = "You should login."
+        lbl.text = "You must be a member to shop."
        return lbl
     }()
     
     private lazy var loginButton: UIButton = {
         let btn = UIButton()
-        btn.layer.borderColor = UIColor.systemGray.cgColor
-        btn.layer.borderWidth = 1
-        btn.layer.cornerRadius = 4
+        btn.addBorder()
         btn.setTitleColor(.black, for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
@@ -58,6 +56,7 @@ class UIEmptyCart: UIView {
 
     private func setupUI() {
         backgroundColor = .white
+        
         self.addSubview(baseView)
         self.addSubview(baseColumn)
         self.baseColumn.addArrangedSubview(titleLabel)
@@ -77,19 +76,15 @@ class UIEmptyCart: UIView {
         self.baseColumn.snp.makeConstraints { make in
             make.top.equalTo(baseView.snp.top).offset(16)
             make.height.equalTo(baseView.snp.height).multipliedBy(0.4)
-            make.leading.equalTo(baseView.snp.leading).offset(16)
-            make.trailing.equalTo(baseView.snp.trailing).offset(-16)
+            make.leading.equalTo(baseView.snp.leading).offset(32)
+            make.trailing.equalTo(baseView.snp.trailing).offset(-32)
         }
         self.loginButton.snp.makeConstraints { make in
-            make.height.equalTo(baseColumn.snp.height).multipliedBy(0.3)
+            make.height.equalTo(baseColumn.snp.height).multipliedBy(0.15)
         }
     }
     
     @objc func loginButtonTapped() {
         self.delegate?.loginButtonTapped()
     }
-}
-
-#Preview {
-    UIEmptyCart()
 }
